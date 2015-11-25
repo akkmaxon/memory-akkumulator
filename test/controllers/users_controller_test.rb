@@ -17,11 +17,21 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should create user" do
+    name = "NewUser"
     email = "new@email.com"
-    assert_difference('User.count') do
-      post :create, user: { email: email, name: @user.name }
+    assert_no_difference 'User.count' do
+      post :create, user: { name: '', 
+      			    email: 'my@bad', 
+			    password: 'pass', 
+			    password_confirmation: 'word' }
+      end
+    assert_template :new
+    assert_difference 'User.count', 1 do
+      post :create, user: { name: name, 
+      			    email: email, 
+      			    password: "password", 
+      			    password_confirmation: "password" }
     end
-
     assert_redirected_to user_path(assigns(:user))
   end
 
@@ -35,9 +45,18 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update user" do
+  test "should update user without password" do
     new_email = "new@email.com"
     patch :update, id: @user, user: { email: new_email, name: @user.name }
+    assert_redirected_to user_path(assigns(:user))
+  end
+
+  test "should update user with password" do
+    new_email = "new@email.com"
+    patch :update, id: @user, user: { email: new_email, 
+    				      name: @user.name,
+				      password: 'password',
+				      password_confirmation: 'password' }
     assert_redirected_to user_path(assigns(:user))
   end
 
