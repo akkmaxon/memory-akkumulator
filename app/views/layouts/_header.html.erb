@@ -1,14 +1,14 @@
-<header>
-  <nav class="navbar navbar-default" role="navigation">
-    <%= link_to "Add article", '#', class: "navbar-brand" %>
-    <div class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Collections<span class="caret"></span></a>
+<header class="navbar navbar-default">
+  <ul class="nav nav-pills">
+    <li><%= link_to "Add article", '#', class: "navbar-brand" %></li>
+    <li class="dropdown" role="presentation">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><a href="#">Ruby</a></li>
 	<li><a href="#">Vim</a></li>
 	<li><a href="#">Rails</a></li>
 	<li><a href="#">HTML</a></li>
       </ul>
-    </div>
-  </nav>
+    </li>
+  </ul>
 </header>
