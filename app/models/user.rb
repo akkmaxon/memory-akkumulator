@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
- has_many :articles
+ has_many :articles, dependent: :destroy
+ has_many :categories, dependent: :destroy
+
  before_save :email_downcase
   validates :name, {
     presence: true,
