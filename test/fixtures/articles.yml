@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: FirstArticle
+  content: MyTextOfFirstArticle
+  user: one 
+
+two:
+  title: SecondArticle
+  content: MyTextOfSecondArticle
+  user: one

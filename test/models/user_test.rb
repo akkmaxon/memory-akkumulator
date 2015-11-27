@@ -3,10 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   
   def setup
-    @user = User.new(name: "Name",
-    		     email: "user@email.com",
-		     password: "Password",
-		     password_confirmation: "Password")
+    @user = users(:one)
   end
 
   test "should be valid" do
@@ -67,5 +64,10 @@ class UserTest < ActiveSupport::TestCase
   test "password should not be short" do
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
+  end
+
+  test "association to article is good" do
+    assert_equal "MyTextOfFirstArticle", @user.articles.find_by(title: "FirstArticle").content
+    assert_equal "MyTextOfSecondArticle", @user.articles.find_by(title: "SecondArticle").content
   end
 end
