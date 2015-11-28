@@ -5,10 +5,9 @@
     <li class="dropdown" role="presentation">
       <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
       <ul class="dropdown-menu">
-        <li><a href="#">Ruby</a></li>
-	<li><a href="#">Vim</a></li>
-	<li><a href="#">Rails</a></li>
-	<li><a href="#">HTML</a></li>
+	<% all_categories.each do |category| %>
+	  <li><%= link_to category.title, category_path(category) %>
+	<% end %>
       </ul>
     </li>
   </ul>
