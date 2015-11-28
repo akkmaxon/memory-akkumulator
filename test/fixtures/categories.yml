@@ -7,3 +7,7 @@ one:
 two:
   title: SecondCategory
   user: one
+
+three:
+  title: SecondCategory
+  user: two
