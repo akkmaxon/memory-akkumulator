@@ -4,8 +4,22 @@ one:
   title: FirstArticle
   content: MyTextOfFirstArticle
   user: one 
+  category: one
 
 two:
   title: SecondArticle
   content: MyTextOfSecondArticle
   user: one
+  category: two
+
+three:
+  title: ThirdArticle
+  content: MyTextOfThirdArticle
+  user: one
+  category: one
+
+four:
+  title: FourthArticle
+  content: MyTextOfFourthArticle
+  user: two
+  category: two
