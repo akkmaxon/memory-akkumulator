@@ -26,13 +26,10 @@ ActiveRecord::Schema.define(version: 20151127121132) do
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "categories", force: :cascade do |t|
-    t.integer  "user_id"
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "categories", ["user_id"], name: "index_categories_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
