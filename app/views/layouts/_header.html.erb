@@ -1,14 +1,17 @@
 <header class="navbar navbar-default" style="padding-top: 10px">
   <ul class="nav nav-pills">
     <li><%= link_to "Akkwiki", root_path, class: "navbar-brand" %></li>
-    <li><%= link_to "Add article", new_article_path, class: "btn btn-default" %></li>
-    <li class="dropdown" role="presentation">
-      <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-	<% all_categories.each do |category| %>
-	  <li><%= link_to category.title, category_path(category) %>
-	<% end %>
-      </ul>
-    </li>
+    <% if current_user %>
+      <li><%= link_to "Add article", new_article_path, class: "btn btn-default" %></li>
+      <li class="dropdown" role="presentation">
+        <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+	  <% all_categories.each do |category| %>
+	    <li><%= link_to category.title, category_path(category) %>
+	  <% end %>
+        </ul>
+      </li>
+      <li class="navbar-right" style="margin-right: 10px"><%= link_to "Log Out", logout_path, method: "delete" %></li>
+    <% end %>
   </ul>
 </header>

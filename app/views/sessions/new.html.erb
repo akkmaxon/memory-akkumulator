@@ -1,0 +1,22 @@
+<h1>Sign in</h1>
+
+<% if flash.alert %>
+  <div class="alert">
+    <%= flash.alert %>
+  </div>
+<% end %>
+
+<%= form_tag login_path do %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= email_field_tag :email, params[:email], placeholder: "Enter your email", required: true %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password, params[:password], placeholder: "Enter your password", required: true %>
+  </div>
+  
+  <%= submit_tag "Sign in", class: "btn btn-default" %>
+  or <%= link_to "Sign up", new_user_path %>
+<% end %>

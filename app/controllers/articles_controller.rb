@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate
+  before_action :get_category, only: [:create, :update]
 
   # GET /articles
   # GET /articles.json
@@ -24,7 +26,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = Article.new(full_params)
 
     respond_to do |format|
       if @article.save
@@ -41,7 +43,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     respond_to do |format|
-      if @article.update(article_params)
+      if @article.update(full_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
@@ -70,5 +72,17 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :content)
+    end
+
+    def full_params
+      article_params.merge(category_id: @category.id, user_id: current_user.id)
+    end
+    
+    def get_category
+      if category = Category.find_by(title: params[:category].capitalize)
+        @category = category
+      else
+        @category = Category.create(title: params[:category].capitalize)
+      end
     end
 end
