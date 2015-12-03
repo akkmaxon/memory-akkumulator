@@ -6,8 +6,8 @@
       <li class="dropdown" role="presentation">
         <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
         <ul class="dropdown-menu">
-	  <% all_categories.each do |category| %>
-	    <li><%= link_to category.title, category_path(category) %>
+	  <% user_categories.each do |category| %>
+	    <li><%= link_to category, category_path(Category.find_by(title: category)) %>
 	  <% end %>
         </ul>
       </li>

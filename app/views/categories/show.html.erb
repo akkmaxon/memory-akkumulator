@@ -3,6 +3,7 @@
 <h3><%= @category.title %></h3><br>
 
 <% @category.articles.each do |article| %>
+ <% next unless current_user == article.user %>
   <div id="article" class="jumbotron">
     <h3><%= link_to article.title, article_path(article) %></h3>
     <p>
@@ -10,5 +11,5 @@
     </p>
   </div>
 <% end %>
-<%= link_to 'Edit', edit_category_path(@category) %> |
+
 <%= link_to 'Home', root_path %>
