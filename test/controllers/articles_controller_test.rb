@@ -4,6 +4,7 @@ class ArticlesControllerTest < ActionController::TestCase
 
   def setup
     @article = articles(:one)
+    log_in_as users(:one)
   end
 
   test "should get index" do
@@ -19,9 +20,9 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test "should create article" do
     assert_difference('Article.count') do
-      post :create, article: { content: @article.content, title: @article.title, category: @article.category }
+      post :create, article: { content: @article.content, title: @article.title }, category: @article.category.title 
     end
-
+    assert_equal "Firstcategory", Article.last.category.title
     assert_redirected_to article_path(assigns(:article))
   end
 

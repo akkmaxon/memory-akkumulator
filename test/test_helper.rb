@@ -8,4 +8,7 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  def log_in_as user
+    session[:user_id] = user.id
+  end
 end
