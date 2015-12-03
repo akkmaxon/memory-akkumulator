@@ -1,7 +1,7 @@
 <div class="jumbotron">
 <h1>Welcome</h1>
 
-<% if flash.alert %>
+<% if flash.alert and flash.alert != "You need to sign in" %>
   <div class="alert">
     <%= flash.alert %>
   </div>
@@ -9,16 +9,16 @@
 
 <%= form_tag login_path do %>
   <div class="field">
-    <%= label_tag :email %>
+    <%= label_tag :email %><br>
     <%= email_field_tag :email, params[:email], placeholder: "Enter your email", required: true %>
   </div>
 
   <div class="field">
-    <%= label_tag :password %>
+    <%= label_tag :password %><br>
     <%= password_field_tag :password, params[:password], placeholder: "Enter your password", required: true %>
   </div>
   
   <%= submit_tag "Sign in", class: "btn btn-default" %>
-  or <%= link_to "Sign up", new_user_path %>
+  <%= link_to "new user?", new_user_path %>
 <% end %>
 </div>

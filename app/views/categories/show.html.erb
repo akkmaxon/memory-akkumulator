@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @category.title %>
-</p>
+<h3><%= @category.title %></h3><br>
 
+<% @category.articles.each do |article| %>
+  <div id="article" class="jumbotron">
+    <h3><%= link_to article.title, article_path(article) %></h3>
+    <p>
+    <%= article.content %>
+    </p>
+  </div>
+<% end %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Home', root_path %>

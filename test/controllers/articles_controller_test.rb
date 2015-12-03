@@ -22,7 +22,7 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_difference('Article.count') do
       post :create, article: { content: @article.content, title: @article.title }, category: @article.category.title 
     end
-    assert_equal "Firstcategory", Article.last.category.title
+    assert_equal "Firstcategory", Article.first.category.title
     assert_redirected_to article_path(assigns(:article))
   end
 

@@ -19,3 +19,17 @@
   float: right;
   margin-right: 10px;
 }
+
+#article {
+  p {
+    font-size: 1.1em;
+  }
+}
+
+input, textarea, select {
+    border: 1px solid #bbb;
+#   width: 100%;
+    margin-bottom: 15px;
+    @include box_sizing;
+}
+
