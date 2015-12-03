@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
       redirect_to login_url, alert: 'You need to sign in'
     end
   end
+  
+  def log_in user
+    session[:user_id] = user.id
+  end
 end

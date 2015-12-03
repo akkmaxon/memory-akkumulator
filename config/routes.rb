@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :categories
+  resources :categories# except: [:index, :new, :create]
   resources :articles
-  resources :users
+  resources :users# except: [:index, :show]
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'

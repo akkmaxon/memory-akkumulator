@@ -5,12 +5,6 @@ class UsersControllerTest < ActionController::TestCase
     @user = users(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:users)
-  end
-
   test "should get new" do
     get :new
     assert_response :success
@@ -32,12 +26,7 @@ class UsersControllerTest < ActionController::TestCase
       			    password: "password", 
       			    password_confirmation: "password" }
     end
-    assert_redirected_to user_path(assigns(:user))
-  end
-
-  test "should show user" do
-    get :show, id: @user
-    assert_response :success
+    assert_redirected_to root_path
   end
 
   test "should get edit" do
@@ -48,7 +37,7 @@ class UsersControllerTest < ActionController::TestCase
   test "should update user without password" do
     new_email = "new@email.com"
     patch :update, id: @user, user: { email: new_email, name: @user.name }
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to root_path
   end
 
   test "should update user with password" do
@@ -57,7 +46,7 @@ class UsersControllerTest < ActionController::TestCase
     				      name: @user.name,
 				      password: 'password',
 				      password_confirmation: 'password' }
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to root_path
   end
 
   test "should destroy user" do
@@ -65,6 +54,6 @@ class UsersControllerTest < ActionController::TestCase
       delete :destroy, id: @user
     end
 
-    assert_redirected_to users_path
+    assert_redirected_to root_path
   end
 end
