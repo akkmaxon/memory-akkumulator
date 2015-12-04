@@ -1,13 +1,9 @@
 module CategoriesHelper
-  def user_categories
+  def current_user_categories
     #returns array of titles
     categories = []
-    Category.all.each do |category|
-      category.articles.each do |article|
-        if article.user == current_user
-	  categories << category.title
-	end
-      end
+    current_user.articles.each do |article|
+      categories << article.category
     end
     categories.uniq
   end

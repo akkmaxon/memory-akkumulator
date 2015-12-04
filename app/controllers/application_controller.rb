@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     unless current_user
-      redirect_to login_url, alert: 'You need to sign in'
+      redirect_to login_url
     end
   end
   
