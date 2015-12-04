@@ -16,8 +16,8 @@
 }
 
 #profile {
-  float: right;
   margin-right: 10px;
+  float: right;
 }
 
 #article {
@@ -31,5 +31,9 @@ input, textarea, select {
 #   width: 100%;
     margin-bottom: 15px;
     @include box_sizing;
+}
+
+header, footer {
+  padding-top: 10px;
 }
 
