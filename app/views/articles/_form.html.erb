@@ -12,16 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <%= label_tag :category %><br>
+        <%= text_field_tag :category %>
+      </div>
+    </div>
   </div>
-  <div class="field">
+  <div class="field" id="article_content">
     <%= f.label :content %><br>
     <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= label_tag :category %><br>
-    <%= text_field_tag :category %>
   </div>
   <div class="actions">
     <%= f.submit %>
