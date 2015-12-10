@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% current_user.articles.each do |article| %>
+<% @articles.each do |article| %>
   <%= render 'layouts/article_view', object: article %>
 <% end %>
 

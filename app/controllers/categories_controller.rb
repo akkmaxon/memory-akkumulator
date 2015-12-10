@@ -5,6 +5,10 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @articles = Array.new
+    @category.articles.each do |article|
+      @articles << article if current_user == article.user
+    end
   end
 
 

@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= @category.title %></h3><br>
+<h3>
+  <%= @category.title %> (<%= pluralize(@articles.count, "article") %>)
+</h3><br>
 
-<% @category.articles.each do |article| %>
-  <% next unless current_user == article.user %>
+<% @articles.each do |article| %>
   <%= render 'layouts/article_view', object: article %>
 <% end %>
 
