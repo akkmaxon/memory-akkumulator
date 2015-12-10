@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div id="article" class="jumbotron">
-  <h3><%= @article.title %></h3>
-  <p>
-  <%= @article.content %>
-  </p>
-</div>
+<%= render 'layouts/article_view', object: @article %>
 
 <%= link_to 'Delete', @article, method: :delete, data: { confirm: 'Delete this article?' } %> |
 <%= link_to 'Edit', edit_article_path(@article) %> |
