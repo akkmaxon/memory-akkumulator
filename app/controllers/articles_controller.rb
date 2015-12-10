@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   before_action :set_article, :correct_user?, only: [:show, :edit, :update, :destroy]
   before_action :authenticate
   before_action :get_category, only: [:create, :update]
-  after_action :empty_category?, only: :destroy
+  before_action :save_category, only: [:update, :destroy]
+  after_action :delete_category?, only: [:update, :destroy]
 
   # GET /articles
   # GET /articles.json
@@ -43,7 +44,6 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    last_category = @article.category
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
@@ -52,9 +52,6 @@ class ArticlesController < ApplicationController
         format.html { render :edit }
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
-    end
-    if last_category != @article.category and last_category.articles.empty?
-      last_category.delete
     end
   end
 
@@ -100,9 +97,16 @@ class ArticlesController < ApplicationController
       end
     end
 
-    def empty_category?
-      if @article.category.articles.empty? and @article.category != Category.find_by(title: "Not specified")
-        @article.category.delete
+    def save_category
+      set_article
+      session[:category] = @article.category.title
+    end
+
+    def delete_category?
+      category = Category.find_by(title: session[:category])
+      session.delete(:category)
+      if category.articles.empty? and category.title != "Not specified"
+        category.delete
       end
     end
 end
