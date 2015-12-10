@@ -89,10 +89,10 @@ class ArticlesController < ApplicationController
       if params[:category].empty?
         @category = Category.find_by(title: "Not specified")
       else
-        if category = Category.find_by(title: params[:category].capitalize)
+        if category = Category.find_by(title: params[:category])
           @category = category
         else
-          @category = Category.create(title: params[:category].capitalize)
+          @category = Category.create(title: params[:category])
         end
       end
     end
