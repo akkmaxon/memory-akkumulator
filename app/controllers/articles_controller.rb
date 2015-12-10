@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, :correct_user?, only: [:show, :edit, :update, :destroy]
   before_action :authenticate
   before_action :get_category, only: [:create, :update]
   after_action :empty_category?, only: :destroy
@@ -72,6 +72,14 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+    end
+
+    def correct_user?
+      set_article
+      unless @article.user == current_user
+        redirect_to root_path
+        flash[:notice] = 'Forbidden place'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

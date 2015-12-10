@@ -31,9 +31,21 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should not show article of other user" do
+    get :show, id: articles(:four)
+    assert_redirected_to root_path
+    assert_equal "Forbidden place", flash[:notice]
+  end
+
   test "should get edit" do
     get :edit, id: @article
     assert_response :success
+  end
+
+  test "should not get edit article of other user" do
+    get :edit, id: articles(:four)
+    assert_redirected_to root_path
+    assert_equal "Forbidden place", flash[:notice]
   end
 
   test "should update article" do
@@ -45,7 +57,14 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_difference('Article.count', -1) do
       delete :destroy, id: @article
     end
-
     assert_redirected_to articles_path
   end
+
+  test "should not destroy article of other user" do
+    assert_no_difference 'Article.count' do
+      delete :destroy, id: articles(:four)
+    end
+    assert_redirected_to root_path
+    assert_equal "Forbidden place", flash[:notice]
+  end 
 end
