@@ -1,5 +1,5 @@
 <div id="article" class="jumbotron">
-  <h3><%= link_to object.title, article_path(object) %></h3><br>
+  <h3><%= link_to object.title, edit_article_path(object) %></h3><br>
   <% object.content.split("\n").each do |line| %>
   <p>
     <%= line %>  

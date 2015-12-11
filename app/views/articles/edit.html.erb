@@ -9,5 +9,6 @@
     </div>
   </div>
 </div>
-<%= link_to 'Cancel', @article %> |
+<%= link_to 'Delete', @article, method: :delete, data: { confirm: 'Delete this article?' } %> |
+<%= link_to 'Category', category_path(@article.category) %> |
 <%= link_to 'Home', articles_path %>

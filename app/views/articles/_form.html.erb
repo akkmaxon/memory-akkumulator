@@ -19,7 +19,11 @@
       </div>
       <div class="col-sm-6 col-md-6 col-lg-6">
         <%= label_tag :category %><br>
-        <%= text_field_tag :category %>
+	<% if params[:action] == 'edit' %>
+          <%= text_field_tag :category, @article.category.title %>
+	<% else %>
+	  <%= text_field_tag :category %>
+	<% end %>
       </div>
     </div>
   </div>

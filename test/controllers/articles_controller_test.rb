@@ -22,19 +22,8 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_difference('Article.count') do
       post :create, article: { content: @article.content, title: @article.title }, category: @article.category.title 
     end
-    assert_equal "Firstcategory", Article.first.category.title
-    assert_redirected_to article_path(assigns(:article))
-  end
-
-  test "should show article" do
-    get :show, id: @article
-    assert_response :success
-  end
-
-  test "should not show article of other user" do
-    get :show, id: articles(:four)
-    assert_redirected_to root_path
-    assert_equal "Forbidden place", flash[:notice]
+    assert_equal "FirstCategory", Article.first.category.title
+    assert_redirected_to category_path(assigns(:article).category)
   end
 
   test "should get edit" do
@@ -50,7 +39,7 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test "should update article" do
 #   patch :update, id: @article, article: { content: @article.content, title: @article.title }
-#   assert_redirected_to article_path(assigns(:article))
+#    assert_redirected_to category_path(assigns(:article).category)
   end
 
   test "should destroy article" do
