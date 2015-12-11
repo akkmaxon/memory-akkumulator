@@ -44,3 +44,12 @@ header, footer {
   width: 100%;
   min-height: 300px;
 }
+
+#category_link {
+  background-color: #eee;
+  float: right;
+  margin: -15px 0 0 0;
+  padding: 0 5px 5px 5px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 2px;
+}
