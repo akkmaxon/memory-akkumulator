@@ -11,6 +11,7 @@ class ArticlesControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:articles)
+    assert_select "article#article", count: 3
   end
 
   test "should get new" do
