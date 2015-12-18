@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
 	log_in @user
+	create_welcome_article @user
         format.html { redirect_to root_path, notice: "Hi, #{@user.name}. Your profile was successfully created." }
         format.json { render :show, status: :created, location: root_path }
       else

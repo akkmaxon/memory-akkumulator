@@ -10,8 +10,7 @@ class ArticlesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:articles)
-    assert_select "article#article", count: 3
+    assert_select "article#article"
   end
 
   test "should get new" do
