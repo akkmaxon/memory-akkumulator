@@ -5,15 +5,13 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @articles = Array.new
-    @category.articles.each do |article|
-      @articles << article if current_user == article.user
-    end
+    @articles = category_articles
   end
 
 
   # GET /categories/1/edit
   def edit
+    @articles = category_articles
   end
 
   # PATCH/PUT /categories/1
@@ -49,5 +47,13 @@ class CategoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:title)
+    end
+
+    def category_articles
+      articles = Array.new
+      @category.articles.each do |article|
+        articles << article if current_user == article.user
+      end
+      articles
     end
 end

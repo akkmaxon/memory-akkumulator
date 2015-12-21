@@ -1,12 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h3>
-  <%= @category.title %> (<%= pluralize(@articles.count, "article") %>)
+  <%= link_to "#{@category.title} (#{pluralize(@articles.count, 'article')})", edit_category_path(@category) %>
 </h3><br>
 
 <% @articles.each do |article| %>
   <%= render 'layouts/article_view', object: article %>
 <% end %>
-
-<%= link_to 'Edit category', edit_category_path(@category) %> |
-<%= link_to 'Home', root_path %>
