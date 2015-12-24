@@ -2,7 +2,6 @@
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
       <ul>
       <% @article.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,27 +10,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <div class="row">
-      <div class="col-sm-6 col-md-6 col-lg-6">
-        <%= f.label :title %><br>
-        <%= f.text_field :title %>
-      </div>
-      <div class="col-sm-6 col-md-6 col-lg-6">
-        <%= label_tag :category %><br>
-	<% if params[:action] == 'edit' %>
-          <%= text_field_tag :category, @article.category.title %>
-	<% else %>
-	  <%= text_field_tag :category %>
-	<% end %>
-      </div>
-    </div>
-  </div>
-  <div class="field" id="article_content">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.label :title %><br>
+  <%= f.text_field :title, class: 'form-control' %>
+  <%= label_tag :category %><br>
+  <% if params[:action] == 'edit' %>
+    <%= text_field_tag :category, @article.category.title, class: 'form-control' %>
+  <% else %>
+    <%= text_field_tag :category, "", class: 'form-control' %>
+  <% end %>
+  <%= f.label :content %><br>
+  <%= f.text_area :content, class: 'form-control article_content', id: 'article' %>
+  <%= f.submit %>
 <% end %>
