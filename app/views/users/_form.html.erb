@@ -10,23 +10,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
+  <!-- User credentials -->
+  <%= f.label :name %><br>
+  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.label :email %><br>
+  <%= f.email_field :email, class: 'form-control' %>
+  <%= f.label :password %><br>
+  <%= f.password_field :password, class: 'form-control' %>
+  <%= f.label :password_confirmation %><br>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+<!-- Categories in feed -->
+  <h4 style="border-top: 1px solid #ccc;padding-top: 10px">Categories to view in the feed will be appearing below</h4>
   <div class="actions">
     <%= f.submit %>
   </div>
