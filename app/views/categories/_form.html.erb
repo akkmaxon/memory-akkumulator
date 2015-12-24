@@ -11,11 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Update title' %>
-  </div>
+  <%= f.label :title %><br>
+  <%= f.text_field :title, class: 'form-control' %>
+  <%= f.submit 'Update title' %>
 <% end %>

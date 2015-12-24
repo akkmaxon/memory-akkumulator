@@ -1,10 +1,12 @@
-<footer class="navbar navbar-fixed-bottom">
 <% if current_user and proper_search_place %>
+<footer class="navbar navbar-fixed-bottom">
   <div class="input-group container">
     <input type="text" class="form-control" placeholder="Search">
     <span class="input-group-btn">
       <button class="btn btn-default" type="button">Find</button>
     </span>
   </div>
+<% else %>
+<footer>
 <% end %>
 </footer>

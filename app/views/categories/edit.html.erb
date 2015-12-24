@@ -1,13 +1,16 @@
-<div style="margin-left: 20%;margin-right: 30%;">
-  <h1>Editing Category</h1>
-
-  <%= render 'form' %>
-  <ul style="list-style:none;margin-left: -40px;">
-    <% @articles.each do |article| %>
-    <li id="little_article">
-      <h4><%= article.title %></h4>
-      <small><%= link_to 'Delete', article, method: :delete, data: { confirm: "Delete #{article.title}?" } %></small>
-    </li>
-    <% end %>
-  </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-2">
+      <h1>Editing Category</h1>
+      <%= render 'form' %>
+      <% @articles.each do |article| %>
+        <div id="little_article">
+          <h4><%= article.title %></h4>
+          <small>
+	    <%= link_to 'Delete', article, method: :delete, data: { confirm: "Delete #{article.title}?" } %>
+	  </small>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
