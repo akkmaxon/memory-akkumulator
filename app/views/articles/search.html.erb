@@ -1,0 +1,9 @@
+<h3>Results of search:</h3><br>
+
+<% if @articles.empty? %>
+  <p>Sorry, nothing found</p>
+<% end %>
+
+<% @articles.each do |article| %>
+  <%= render 'layouts/article_view', object: article %>
+<% end %>

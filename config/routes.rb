@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :categories, except: [:index, :new, :create]
   resources :articles, except: :show
+  get 'search' => 'articles#search'
   resources :users, except: [:index, :show]
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

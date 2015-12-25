@@ -5,6 +5,10 @@ class ArticlesController < ApplicationController
   before_action :save_category, only: [:update, :destroy]
   after_action :delete_category?, only: [:update, :destroy]
 
+  def search
+    param = params[:search]
+    @articles = Article.where('content like :param or title like :param', param: "%#{param}%")
+  end
   # GET /articles
   # GET /articles.json
   def index

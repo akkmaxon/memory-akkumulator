@@ -1,6 +1,7 @@
 module ApplicationHelper
   def proper_search_place
-    params[:action] == 'index' || params[:action] == 'show'
+    actions = %q{ index show search }
+    actions.include? params[:action]
   end
 
   def full_title(app_title)
