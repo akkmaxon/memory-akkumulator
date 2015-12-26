@@ -7,7 +7,9 @@ class ArticlesController < ApplicationController
 
   def search
     param = params[:search]
-    @articles = Article.where('content like :param or title like :param', param: "%#{param}%")
+    like = "like" unless Rails.env.production?
+    like ||= "ilike"
+    @articles = current_user.articles.where("content #{like} :param or title #{like} :param", param: "%#{param}%")
   end
   # GET /articles
   # GET /articles.json

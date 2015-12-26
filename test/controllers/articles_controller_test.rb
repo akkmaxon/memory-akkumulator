@@ -56,4 +56,11 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_redirected_to root_path
     assert_equal "Forbidden place", flash[:notice]
   end 
+
+  test "should get search and return proper results" do
+    number_of_articles = 3
+    get :index
+    get :search, search: ""
+    assert_select "article#article", count: number_of_articles
+  end
 end
