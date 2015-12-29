@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
-  has_many :articles, dependent: :destroy
+  has_many :articles
   validates :title, presence: true
 end

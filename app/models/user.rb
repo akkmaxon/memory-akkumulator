@@ -1,7 +1,13 @@
 class User < ActiveRecord::Base
- has_many :articles, dependent: :destroy
+  has_many :articles, dependent: :destroy
+  has_many :relationships, {
+    class_name: "FeedFilter",
+    foreign_key: "user_id",
+    dependent: :destroy
+  }
+  has_many :hidden_categories, through: :relationships, source: :hidden_category
 
- before_save :email_downcase
+  before_save :email_downcase
   validates :name, {
     presence: true,
     length: { maximum: 49 }
