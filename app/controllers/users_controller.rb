@@ -80,7 +80,7 @@ class UsersController < ApplicationController
     def feed_categories_to_hide_ids
       ids = []
       params.each do |param,value|
-        if param =~ /(\d)._category/
+        if param =~ /(\d)+_category/
 	  ids << param.to_i
 	end
       end
