@@ -19,9 +19,18 @@
   <%= f.password_field :password, class: 'form-control' %>
   <%= f.label :password_confirmation %><br>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
-<!-- Categories in feed -->
+<!-- Hide categories in feed -->
   <% if current_user %>
-    <h4 style="border-top: 1px solid #ccc;padding-top: 10px">Categories to view in the feed will be appearing below</h4>
+    <h4 style="border-top: 1px solid #ccc;padding-top: 10px">Categories to hide in the feed</h4>
+    <% current_user_categories.each do |category| %>
+      <% if current_user.hidden_categories.include? category %>
+        <%= check_box_tag "#{category.id}_category".to_sym, 'checked', checked: true %>
+        <%= label_tag category.title %><br>
+      <% else %>
+        <%= check_box_tag "#{category.id}_category".to_sym, 'checked' %>
+        <%= label_tag category.title %><br>
+      <% end %>
+    <% end %>
   <% end %>
   <div class="actions">
     <%= f.submit %>

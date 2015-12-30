@@ -7,11 +7,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # GET /users/1
-  # GET /users/1.json
-  def show
-  end
-
   # GET /users/new
   def new
     @user = User.new
@@ -44,6 +39,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+      patch_hidden_categories
         format.html { redirect_to root_path, notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: root_path }
       else
@@ -79,5 +75,30 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def feed_categories_to_hide_ids
+      ids = []
+      params.each do |param,value|
+        if param =~ /(\d)._category/
+	  ids << param.to_i
+	end
+      end
+      ids
+    end
+
+    def patch_hidden_categories
+      categories_to_hide = feed_categories_to_hide_ids
+      categories_to_hide.each do |cat_id|
+        category = Category.find(cat_id)
+        unless current_user.hidden_categories.include? category
+	  current_user.relationships.create hidden_category_id: category.id
+	end
+      end
+      unless current_user.hidden_categories.size.eql? categories_to_hide
+        current_user.relationships.each do |rel|
+	  rel.destroy unless categories_to_hide.include? rel.hidden_category_id
+	end
+      end
     end
 end
