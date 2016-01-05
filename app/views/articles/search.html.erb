@@ -1,4 +1,6 @@
-<h3>Results of search(<%= @articles.count %>):</h3><br>
+<% if @articles.count > 0 %>
+  <h3>Results of search(<%= @articles.count %>):</h3><br>
+<% end %>
 <% @articles.each do |article| %>
   <p class="category_link"><%= link_to article.category.title, category_path(article.category) %></p>
   <%= render 'layouts/article_view', object: article %>
