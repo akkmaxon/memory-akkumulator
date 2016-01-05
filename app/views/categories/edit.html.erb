@@ -4,7 +4,7 @@
       <h1>Editing Category</h1>
       <%= render 'form' %>
       <% @articles.each do |article| %>
-        <div id="little_article">
+        <div class="little_article">
           <h4><%= article.title %></h4>
           <small>
 	    <%= link_to 'Delete', article, method: :delete, data: { confirm: "Delete #{article.title}?" } %>

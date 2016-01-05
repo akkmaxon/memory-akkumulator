@@ -1,7 +1,5 @@
 <h3>Results of search(<%= @articles.count %>):</h3><br>
-<p id="notice"><%= notice %></p>
-
 <% @articles.each do |article| %>
-  <p id="category_link"><%= link_to article.category.title, category_path(article.category) %></p>
+  <p class="category_link"><%= link_to article.category.title, category_path(article.category) %></p>
   <%= render 'layouts/article_view', object: article %>
 <% end %>
