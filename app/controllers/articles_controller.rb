@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
   before_action :set_article, :correct_user?, only: [:edit, :update, :destroy]
-  before_action :authenticate
   before_action :get_category, only: [:create, :update]
   before_action :save_category, only: [:update, :destroy]
   after_action :delete_category?, only: [:update, :destroy]

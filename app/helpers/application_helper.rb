@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def full_title(app_title)
     if current_user
-      current_user.name + " | " + app_title 
+      app_title + " | " + current_user.email
     else
       app_title
     end

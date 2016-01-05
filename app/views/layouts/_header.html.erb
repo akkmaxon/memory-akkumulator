@@ -1,5 +1,5 @@
 <header>
-  <% if current_user %>
+  <% if user_signed_in? %>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <%= link_to 'Home', root_url, class: 'btn btn-link navbar-btn' %>
@@ -18,8 +18,8 @@
         <ul class="dropdown-menu dropdown-menu-right">
           <li><%= link_to 'Add article', new_article_path %></li>
           <li role="separator" class="divider"></li>
-          <li><%= link_to "Edit profile", edit_user_path(current_user) %></li>
-          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+          <li><%= link_to "Edit profile", edit_user_registration_path(current_user) %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         </ul>
       </div><!-- #profile_button-->
     </div>
