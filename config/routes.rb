@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :categories, except: [:index, :new, :create]
   resources :articles, except: :show
   get 'search' => 'articles#search'
-  #esources :users, except: [:index, :show]
   root 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
