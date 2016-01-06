@@ -51,7 +51,7 @@ class CategoriesController < ApplicationController
     def category_articles
       articles = Array.new
       @category.articles.each do |article|
-        articles << article if current_user == article.user
+        articles << article if current_user.articles.include? article
       end
       articles
     end

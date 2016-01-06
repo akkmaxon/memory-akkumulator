@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  before_save :email_downcase
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,9 +14,4 @@ class User < ActiveRecord::Base
     source: :hidden_category
   }
 
-  private
-    
-    def email_downcase
-      email.downcase!
-    end
 end

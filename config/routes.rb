@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   resources :categories, except: [:index, :new, :create]
   resources :articles, except: :show
   get 'search' => 'articles#search'

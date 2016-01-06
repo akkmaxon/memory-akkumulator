@@ -6,12 +6,4 @@ class ApplicationController < ActionController::Base
 
   protected 
 
-  def create_welcome_article(user)
-    app_name = "Memory Akkumulator"
-    article = Article.create(
-      title: "Welcome to #{app_name}!",
-      content: "Hi, this is your help file. I am not ready yet.",
-      user_id: user.id,
-      category_id: Category.find_by(title: "Not specified").id)
-  end
 end
