@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
     like = "like" unless Rails.env.production?
     like ||= "ilike"
     @articles = current_user.articles.where("content #{like} :param or title #{like} :param", param: "%#{param}%")
-    flash.now[:notice] = 'Your search returned no matches' if @articles.empty?
+    flash.now[:alert] = 'Your search returned no matches' if @articles.empty?
   end
   # GET /articles
   # GET /articles.json
