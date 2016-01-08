@@ -15,6 +15,12 @@
 	  <span class="glyphicon glyphicon-menu-down"></span>
 	</a>
         <ul class="dropdown-menu dropdown-menu-right">
+	  <li>
+            <%= form_tag search_path, method: :get do %>
+              <%= text_field_tag :search, "", class: "form-control", style: 'width: 90%;margin: 0 0 -3px 5%', placeholder: "Search article" %>
+            <% end %>
+          </li>
+          <li role="separator" class="divider"></li>
           <li><%= link_to 'Add article', new_article_path %></li>
           <li role="separator" class="divider"></li>
           <li><%= link_to "Edit profile", edit_user_registration_path(current_user) %></li>
