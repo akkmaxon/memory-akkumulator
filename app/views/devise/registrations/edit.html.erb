@@ -1,8 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-2">
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+      <h3>Hide articles of categories:</h3> 
+      <%= form_tag :update_filter_categories do %>
+	<% current_user_categories.each do |category| %>
+	  <% if current_user.hidden_categories.include? category %>
+	    <%= check_box_tag "#{category.id}_category".to_sym, 'checked', checked: true %>
+	  <% else %>
+	    <%= check_box_tag "#{category.id}_category".to_sym, 'checked' %>
+	  <% end %>
+	  <%= label_tag category.title %><br>
+	<% end %>
+	<%= submit_tag 'Update' %>
+      <% end %>
+
+      <h3>Account</h3>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
 
@@ -34,6 +47,8 @@
           <%= f.submit "Update" %>
         </div>
       <% end %>
+
+      <h3>Cancel account</h3>
 
       <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Delete your account?" }, method: :delete %></p>
     </div>

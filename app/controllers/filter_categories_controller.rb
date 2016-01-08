@@ -5,7 +5,7 @@ class FilterCategoriesController < ApplicationController
   end
 
   def update_filter_categories
-    redirect_to edit_filter_categories_path
+    redirect_to edit_user_registration_path
     flash[:notice] = 'Filter was updated.'
   end
 
