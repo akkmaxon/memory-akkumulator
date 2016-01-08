@@ -17,6 +17,7 @@
         <ul class="dropdown-menu dropdown-menu-right">
           <li><%= link_to 'Add article', new_article_path %></li>
           <li role="separator" class="divider"></li>
+          <li><%= link_to "Filter categories", edit_filter_categories_path %></li>
           <li><%= link_to "Edit profile", edit_user_registration_path(current_user) %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         </ul>

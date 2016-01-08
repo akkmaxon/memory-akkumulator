@@ -2,7 +2,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
   after_action :create_welcome_article, only: [:create]
-  after_action :patch_hidden_categories, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -57,30 +56,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     )
   end
   
-  def feed_categories_to_hide_ids
-    ids = []
-    params.each do |param,value|
-      if param =~ /(\d)+_category/
-	ids << param.to_i
-      end
-    end
-    ids
-  end
-
-  def patch_hidden_categories
-    categories_to_hide = feed_categories_to_hide_ids
-    categories_to_hide.each do |cat_id|
-      category = Category.find(cat_id)
-      unless current_user.hidden_categories.include? category
-	current_user.relationships.create hidden_category_id: category.id
-      end
-    end
-    unless current_user.hidden_categories.size.eql? categories_to_hide
-      current_user.relationships.each do |rel|
-	rel.destroy unless categories_to_hide.include? rel.hidden_category_id
-      end
-    end
-  end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.for(:sign_up) << :attribute

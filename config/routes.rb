@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :articles, except: :show
   get 'search' => 'articles#search'
   root 'articles#index'
+  get 'edit_filter_categories' => 'filter_categories#edit_filter_categories'
+  post 'update_filter_categories' => 'filter_categories#update_filter_categories'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

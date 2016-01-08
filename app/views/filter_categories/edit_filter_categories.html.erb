@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-2">
+      <h2>Hide articles of categories:</h2> 
+      <%= form_tag :update_filter_categories do %>
+	<% current_user_categories.each do |category| %>
+	  <% if current_user.hidden_categories.include? category %>
+	    <%= check_box_tag "#{category.id}_category".to_sym, 'checked', checked: true %>
+	  <% else %>
+	    <%= check_box_tag "#{category.id}_category".to_sym, 'checked' %>
+	  <% end %>
+	  <%= label_tag category.title %><br>
+	<% end %>
+	<%= submit_tag 'Update' %>
+      <% end %>
+    </div>
+  </div>
+</div>
