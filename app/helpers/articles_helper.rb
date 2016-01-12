@@ -2,7 +2,7 @@ module ArticlesHelper
   def feed_articles
     articles = all_articles_to_show_in_feed
     random_articles = []
-    max_count = 3
+    max_count = 5
     if articles.size < max_count
       articles_on_page = articles.size
     else
