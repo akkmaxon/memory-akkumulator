@@ -6,10 +6,15 @@ class ArticlesController < ApplicationController
 
   def search
     param = params[:search]
-    like = "like" unless Rails.env.production?
-    like ||= "ilike"
-    @articles = current_user.articles.where("content #{like} :param or title #{like} :param", param: "%#{param}%")
-    flash.now[:alert] = 'Your search returned no matches' if @articles.empty?
+    unless param.empty?
+      like = "like" unless Rails.env.production?
+      like ||= "ilike"
+      @articles = current_user.articles.where("content #{like} :param or title #{like} :param", param: "%#{param}%")
+      flash.now[:alert] = 'Search returned no matches' if @articles.empty?
+    else
+      flash.now[:alert] = 'Your search query is empty'
+      @articles = []
+    end
   end
   # GET /articles
   # GET /articles.json

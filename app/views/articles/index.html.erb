@@ -2,4 +2,4 @@
 <p class="category_link"><%= link_to article.category.title, category_path(article.category) %></p>
   <%= render 'layouts/article_view', object: article %>
 <% end %>
-<%= link_to 'Reload', articles_path, style: 'float:right', class: 'btn btn-default' %>
+<%= link_to 'Reload', articles_path, style: 'float:right;margin-bottom: 10px', class: 'btn btn-default' %>
