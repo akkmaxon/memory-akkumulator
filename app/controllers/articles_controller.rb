@@ -77,7 +77,7 @@ class ArticlesController < ApplicationController
     def correct_user?
       set_article
       unless @article.user.eql? current_user
-        redirect_to root_path
+        redirect_to articles_path
         flash[:alert] = 'Forbidden place'
       end
     end
