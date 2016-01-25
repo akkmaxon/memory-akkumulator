@@ -1,38 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= full_title "Memory Akkumulator" %></title>
+  <title>Memory Akkumulator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="container">
-  <% unless user_signed_in? %>
+  <%= render'layouts/header' if current_user %>
+  <section>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-    <div class="jumbotron">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-2">
-	    <%= yield %>
-	  </div>
-	</div>
-      </div>
-    </div>
-  <% else %>
-    <%= render'layouts/header' %>
-    <section>
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-      <%= yield %>
-    </section>
-  <% end %>
+    <%= yield %>
+  </section>
   <%= debug(params) if Rails.env.development? %>
 </body>
 </html>

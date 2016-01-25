@@ -14,9 +14,9 @@
   <%= f.label :title %><br>
   <% unless @category.title.eql? "Not specified" %>
     <%= f.text_field :title, class: 'form-control' %>
-    <%= f.submit 'Update title' %>
+    <%= f.submit 'Update title', class: "btn btn-success" %>
   <% else %>
-    <%= f.text_field :title, class: 'form-control', disabled: 'disabled' %>
-    <%= f.submit 'Update title', disabled: 'disabled' %>
+    <%= f.text_field :title, class: 'form-control', readonly: true %>
+    <%= f.submit 'Update title', hidden: true %>
   <% end %>
 <% end %>

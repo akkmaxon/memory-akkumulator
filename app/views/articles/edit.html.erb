@@ -3,7 +3,7 @@
     <div class="col-md-6 col-md-offset-2">
       <h1>Editing Article</h1>
       <%= render 'form' %>
-      <%= link_to 'Delete', @article, method: :delete, data: { confirm: 'Delete this article?' } %>
+      <%= link_to 'Delete', @article, method: :delete, data: { confirm: 'Delete this article?' }, class: "btn btn-danger", style: "margin-top: 10px; color: white" %>
     </div>
   </div>
 </div>

@@ -12,8 +12,9 @@
 	  <% end %>
 	  <%= label_tag category.title %><br>
 	<% end %>
-	<%= submit_tag 'Update' %>
+	<%= submit_tag 'Update', class: "btn btn-success" %>
       <% end %>
+      <hr>
 
       <h3>Account</h3>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -44,13 +45,14 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Update" %>
+          <%= f.submit "Update", class: "btn btn-success" %>
         </div>
       <% end %>
+      <hr>
 
       <h3>Cancel account</h3>
 
-      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Delete your account?" }, method: :delete %></p>
+      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Delete your account?" }, method: :delete, class: "btn btn-danger" %></p>
     </div>
   </div>
 </div>  
