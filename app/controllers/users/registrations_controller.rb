@@ -1,6 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
+  before_action :readonly_example_user, only: [:update, :destroy]
   after_action :create_welcome_article, only: [:create]
 
   # GET /resource/sign_up

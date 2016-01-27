@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :readonly_example_user, only: [:update, :destroy]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories/1

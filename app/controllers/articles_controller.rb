@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :readonly_example_user, only: [:create, :update, :destroy]
   before_action :set_article, :correct_user?, only: [:edit, :update, :destroy]
   before_action :get_category, only: [:create, :update]
   before_action :save_category, only: [:update, :destroy]

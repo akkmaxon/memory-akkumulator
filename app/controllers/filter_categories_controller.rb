@@ -1,4 +1,5 @@
 class FilterCategoriesController < ApplicationController
+  before_action :readonly_example_user, only: :update_filter_categories
   before_action :patch_hidden_categories, only: [:update_filter_categories]
   
   def edit_filter_categories
