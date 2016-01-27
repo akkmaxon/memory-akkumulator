@@ -23,8 +23,8 @@ example_user = User.create(
     when 80..89 then "Lost count category"
     when 90..99 then "Last category"
     end
-  title = Faker::Lorem.sentence
-  content = Faker::Lorem.paragraph
+  title = Faker::Lorem.words(rand(1..4)).join(" ")
+  content = Faker::Lorem.paragraphs(rand(1..9)).join("\n")
   category = Category.find_by(title: category_title) || Category.create(title: category_title)
   Article.create(
     title: title,
