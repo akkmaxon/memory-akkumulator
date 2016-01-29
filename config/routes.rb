@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :categories, except: [:index, :new, :create]
   resources :articles, except: :show
   get 'search' => 'articles#search'
-  get 'edit_filter_categories' => 'filter_categories#edit_filter_categories'
   post 'update_filter_categories' => 'filter_categories#update_filter_categories'
   root 'welcome_to_app#welcome'
 

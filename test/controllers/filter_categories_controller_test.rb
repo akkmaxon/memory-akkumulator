@@ -1,14 +1,14 @@
 require 'test_helper'
 
 class FilterCategoriesControllerTest < ActionController::TestCase
-  test "should get edit_filter_categories" do
-    get :edit_filter_categories
-    assert_response :success
+
+  def setup
+    sign_in users(:one)
   end
 
-  test "should get update_filter_categories" do
-    get :update_filter_categories
-    assert_response :success
+  test "should post update_filter_categories" do
+    post :update_filter_categories, params: {:"1_category" => '1' } 
+    assert_equal 'Filter was updated.', flash[:notice]
   end
 
 end
