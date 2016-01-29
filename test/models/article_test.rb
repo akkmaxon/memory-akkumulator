@@ -21,4 +21,10 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not @first.valid?
   end
 
+  test "order is desc" do
+    first = Article.create(title: 'New article',
+			   content: 'Content of new article')
+    assert_equal 'New article', Article.first.title
+  end
+
 end

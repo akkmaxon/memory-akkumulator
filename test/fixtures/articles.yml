@@ -15,11 +15,11 @@ two:
 three:
   title: ThirdArticle
   content: MyTextOfThirdArticle
-  user: one
+  user: two
   category: one
 
 four:
   title: FourthArticle
   content: MyTextOfFourthArticle
   user: two
-  category: three
+  category: two

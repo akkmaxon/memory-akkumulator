@@ -3,10 +3,11 @@ require 'test_helper'
 class FeedFilterTest < ActiveSupport::TestCase
   
   def setup
-    @relationship = FeedFilter.new(user_id: 1, hidden_category_id: 1)
+    @relationship = FeedFilter.new(user_id: 1,
+				   hidden_category_id: 1)
   end
 
-  test "always valid" do
+  test "should be valid" do
     assert @relationship.valid?
   end
 
