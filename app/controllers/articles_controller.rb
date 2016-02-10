@@ -25,6 +25,13 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    if request.referrer
+      cat_id = request.referrer.split('/').last.to_i
+      unless cat_id.to_i.eql? 0
+        @referrer_category = Category.find(cat_id).title
+      end
+    end
+    @referrer_category ||= ""
   end
 
   # GET /articles/1/edit
