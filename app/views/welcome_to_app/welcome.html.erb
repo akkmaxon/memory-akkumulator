@@ -1,6 +1,6 @@
 <div class="jumbotron text-center">
   <h1>Welcome to Memory Akkumulator</h1>
-  <p>This app is used for storing and viewing articles, notes and etc.</p>
+  <p>The app for storing and reviewing articles, notes, important thoughts.</p>
   <%= form_for(:user, url: {controller: "/devise/sessions", action: "create"}) do |f| %>
     <%= f.email_field :email, value: "user@example.com", hidden: true %>
     <%= f.password_field :password, value: "password", hidden: true %>
