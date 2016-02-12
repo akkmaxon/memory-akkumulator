@@ -1,8 +1,24 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 #new-article {
   float: right;
   margin-top: 10px;
   font-size: 0.6em;
+}
+
+.little_article {
+  padding: 10px 30px;
+  border: 1px solid green;
+  border-radius: 3px;
+  margin-top: 20px;
+  overflow: auto;
+  h4 {
+    float: left;
+  }
+  a {
+    float: right;
+    margin-top: 10px;
+  }
 }

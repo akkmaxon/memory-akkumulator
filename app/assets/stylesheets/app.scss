@@ -15,27 +15,6 @@
   @include box_sizing;
 }
 
-#profile {
-  margin-right: 10px;
-  float: right;
-}
-
-.article {
-  background-color:#fff;
-  border: 1px solid black;
-  border-left: 5px solid green;
-  border-radius: 0 6px 6px 0;
-  padding:3%;
-  margin-bottom:30px;
-  p {
-    font-size: 1.1em;
-  }
-}
-
-section {
-  margin: 40px 0 60px;
-}
-
 input, textarea, select {
     border: 1px solid #bbb;
 #   width: 100%;
@@ -43,40 +22,14 @@ input, textarea, select {
     @include box_sizing;
 }
 
-header, footer {
+header {
   padding-top: 10px;
+  margin-bottom: 40px;
   #profile_button {
     float: right;
   }
   a {
     font-size: 1.1em;
-  }
-}
-/* in form */
-.article_content {
-  width: 100%;
-  min-height: 300px;
-}
-
-.category_link {
-  background-color: #fff;
-  float: right;
-  margin: -9px 10px 0 0;
-  padding: 0 5px 5px 5px;
-}
-
-.little_article {
-  padding: 10px 30px;
-  border: 1px solid green;
-  border-radius: 3px;
-  margin-top: 20px;
-  overflow: auto;
-  h4 {
-    float: left;
-  }
-  a {
-    float: right;
-    margin-top: 10px;
   }
 }
 
