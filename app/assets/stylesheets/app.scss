@@ -17,7 +17,6 @@
 
 input, textarea, select {
     border: 1px solid #bbb;
-#   width: 100%;
     margin-bottom: 15px;
     @include box_sizing;
 }
@@ -44,4 +43,8 @@ header {
   ul {
     margin-top: 5px;
   }
+}
+
+.alert {
+  margin: 20px 0 !important;
 }
