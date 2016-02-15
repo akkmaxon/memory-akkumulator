@@ -24,12 +24,14 @@ input, textarea, select {
 header {
   padding-top: 10px;
   margin-bottom: 40px;
-  #profile_button {
-    float: right;
-  }
   a {
     font-size: 1.1em;
   }
+}
+
+#search {
+  margin: 10px;
+  width: 200px;
 }
 
 .field_with_errors {
