@@ -7,14 +7,6 @@
   box-sizing: border-box;
 }
 
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
-
 input, textarea, select {
     border: 1px solid #bbb;
     margin-bottom: 15px;
@@ -34,17 +26,22 @@ header {
   width: 200px;
 }
 
-.field_with_errors {
-  display: block !important;
-  background-color: inherit !important;
-  @extend .has-error
+aside {
+  float: left;
+  a {
+    border: 1px solid #dadada;
+    &:hover {
+      background-color: inherit !important;
+    }
+  }
 }
 
-#error_explanation {
-  border-radius: 5px;
-  ul {
-    margin-top: 5px;
-  }
+section {
+  margin-bottom: 20px;
+}
+
+.field_with_errors {
+  @extend .has-error
 }
 
 .alert {

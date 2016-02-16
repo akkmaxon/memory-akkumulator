@@ -1,17 +1,11 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-2">
-      <h1>Editing Category</h1>
-      <%= render 'form' %>
-      <hr>
-      <% @articles.each do |article| %>
-        <div class="little_article">
-          <h4><%= article.title %></h4>
-          <small>
-	    <%= link_to 'Delete', article, method: :delete, data: { confirm: "Delete #{article.title}?" } %>
-	  </small>
-        </div>
-      <% end %>
-    </div>
+<h1>Editing Category</h1>
+<%= render 'form' %>
+<hr>
+<% @articles.each do |article| %>
+  <div class="little_article">
+    <h4><%= article.title %></h4>
+    <small>
+      <%= link_to 'Delete', article, method: :delete, data: { confirm: "Delete #{article.title}?" } %>
+    </small>
   </div>
-</div>
+<% end %>

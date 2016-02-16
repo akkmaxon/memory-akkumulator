@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="navbar-header">
 	<%= link_to 'Home', articles_path, class: 'btn btn-link navbar-btn' %>
-	<div class="btn-group visible-xs-inline-block">
+	<div class="btn-group hidden-md hidden-lg">
 	  <a href="#" class="dropdown-toggle btn btn-link navbar-btn" data-toggle="dropdown" aria-expanded="false">Category <span class="caret"></span></a>
 	  <ul class="dropdown-menu">
 	    <% current_user_categories.each do |category| %>
@@ -20,12 +20,12 @@
       </div>
       <div id="collapse" class="navbar-collapse collapse" aria-expanded="false">
         <ul class="nav navbar-nav">
+          <li><%= link_to 'Add article', new_article_path, id: 'new-article-link' %></li>
 	  <li>
             <%= form_tag search_path, method: :get do %>
               <%= text_field_tag :search, "", class: "form-control", placeholder: "Search article" %>
             <% end %>
           </li>
-          <li><%= link_to 'Add article', new_article_path, id: 'new-article-link' %></li>
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Edit profile", edit_user_registration_path(current_user) %></li>

@@ -21,13 +21,9 @@ pre {
 a {
   color: #000;
 
-  &:visited {
-    color: #666;
-  }
-
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #060;
+    text-decoration: none;
   }
 }
 
@@ -43,8 +39,7 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
-  display: table;
+  display: block;
 }
 
 #error_explanation {
@@ -54,6 +49,7 @@ div {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+  border-radius: 5px;
 
   h2 {
     text-align: left;
@@ -64,6 +60,10 @@ div {
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff;
+  }
+
+  ul {
+    margin-top: 5px;
   }
 
   ul li {
