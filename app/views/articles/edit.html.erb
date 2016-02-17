@@ -1,3 +1,3 @@
-<h1>Editing Article</h1>
+<h1><%= t('.edit') %></h1>
 <%= render 'form' %>
-<%= link_to 'Delete', @article, method: :delete, data: { confirm: 'Delete this article?' }, class: "btn btn-danger", style: "margin-top: 10px; color: white" %>
+<%= link_to t('.delete'), @article, method: :delete, data: { confirm: t('.confirm_delete') }, class: "btn btn-danger", style: "margin-top: 10px; color: white" %>

@@ -10,7 +10,7 @@ class WelcomeToAppControllerTest < ActionController::TestCase
     sign_out users(:one)
     get :welcome
     assert_select 'a', count: 2
-    assert_select 'input[value=?]', 'Try it in action'
+    assert_select 'input[value=?]', 'How is it?'
   end
 
   test "should be redirected after login" do

@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <%= f.label :title %><br>
+  <%= f.label :title, t('.title') %><br>
   <% unless @category.title.eql? "Not specified" %>
     <%= f.text_field :title, class: 'form-control' %>
-    <%= f.submit 'Update title', class: "btn btn-success" %>
+    <%= f.submit t('.confirm'), class: "btn btn-success" %>
   <% else %>
     <%= f.text_field :title, class: 'form-control', readonly: true %>
-    <%= f.submit 'Update title', hidden: true %>
+    <%= f.submit t('.confirm'), hidden: true %>
   <% end %>
 <% end %>

@@ -10,15 +10,15 @@
     </div>
   <% end %>
 
-  <%= f.label :title %><br>
+  <%= f.label :title, t('.title') %><br>
   <%= f.text_field :title, class: 'form-control' %>
-  <%= label_tag :category %><br>
+  <%= label_tag :category, t('.category') %><br>
   <% if params[:action] == 'edit' %>
     <%= text_field_tag :category, @article.category.title, class: 'form-control' %>
   <% else %>
     <%= text_field_tag :category, @referrer_category, class: 'form-control' %>
   <% end %>
-  <%= f.label :content %><br>
+  <%= f.label :content, t('.content') %><br>
   <%= f.text_area :content, class: 'form-control article_content article' %>
-  <%= f.submit "Submit", class: "btn btn-success" %>
+  <%= f.submit t('.submit'), class: "btn btn-success" %>
 <% end %>

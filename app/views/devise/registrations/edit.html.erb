@@ -1,4 +1,4 @@
-<h3>Hide articles of categories:</h3> 
+<h3><%= t('.hide_articles_of_categories') %>:</h3> 
 <%= form_tag :update_filter_categories do %>
   <% current_user_categories.each do |category| %>
     <% if current_user.hidden_categories.include? category %>
@@ -8,16 +8,16 @@
     <% end %>
     <%= label_tag category.title %><br>
   <% end %>
-  <%= submit_tag 'Update', class: "btn btn-success" %>
+  <%= submit_tag t('.update'), class: "btn btn-success" %>
 <% end %>
 <hr>
 
-<h3>Account</h3>
+<h3><%= t('.account') %></h3>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, t('.email') %><br />
     <%= f.email_field :email, class: 'form-control' %>
   </div>
 
@@ -26,26 +26,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password, t('.password') %> <i>(<%= t('.leave_blank') %>)</i><br />
     <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, t('.password_confirmation') %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password, t('.current_password') %> <i>(<%= t('.we_need_your_current_password') %>)</i><br />
     <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update", class: "btn btn-success" %>
+    <%= f.submit t('.update'), class: "btn btn-success" %>
   </div>
 <% end %>
 <hr>
 
-<h3>Cancel account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Delete your account?" }, method: :delete, class: "btn btn-danger" %></p>
+<%= button_to t('.cancel_account'), registration_path(resource_name), data: { confirm: t('.confirm_delete_account') }, method: :delete, class: "btn btn-danger" %></p>

@@ -1,6 +1,6 @@
 <h3>
-  <%= link_to "#{@category.title} (#{pluralize(@articles.count, 'article')})", edit_category_path(@category) %>
-  <%= link_to "Add new article", new_article_path, id: 'new-article' %>
+  <%= link_to "#{@category.title} (#{pluralize(@articles.count, t('.article'))})", edit_category_path(@category) %>
+  <%= link_to t('.add_new_article'), new_article_path, id: 'new-article' %>
 </h3><br>
 
 <% @articles.each do |article| %>

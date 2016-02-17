@@ -1,0 +1,86 @@
+ru:
+
+  welcome_to_app:
+    welcome:
+      welcome: "Добро пожаловать в Memory Akkumulator"
+      description: "Приложение для сохранения важных мыслей, заметок, статей и пр."
+      try_it: "Как это?"
+      sign_up: "Зарегистрироваться"
+      log_in: "Войти"
+
+  layouts:
+    header:
+      home: "Главная"
+      categories: "Категории"
+      add_article: "Добавить запись"
+      search_article: "Поиск"
+      edit_profile: "Настройки профиля"
+      log_out: "Выйти"
+
+  devise:
+    registrations:
+      new:
+        sign_up: "Регистрация"
+        email: "Электронная почта"
+        password: "Пароль"
+        password_confirmation: "Подтвердите пароль"
+        password_characters_minimum: "символов минимум"
+        confirm: "Зарегистрироваться" 
+      edit:
+        hide_articles_of_categories: "Скрывать в ленте записи категорий"
+        update: "Обновить"
+        account: "Регистрационные данные"
+        email: "Электронная почта"
+        password: "Пароль"
+        password_confirmation: "Подтвердите пароль"
+        leave_blank: "оставьте пустым, если не собираетесь менять пароль"
+        current_password: "Ваш текущий пароль"
+        we_need_your_current_password: "необходимо ввести для подтверждения изменений"
+        cancel_account: "Удалить мой профиль"
+        confirm_delete_account: "Вы подтверждаете полное удаление вашего профиля со всеми данными?"
+    passwords:
+      new:
+        forgot: "Восстановление пароля"
+        email: "Электронная почта"
+        confirm: "Получить инструкции по восстановлению пароля"
+    sessions:
+      new:
+        log_in: "Вход"
+        email: "Электронная почта"
+        password: "Пароль"
+        remember_me: "Запомнить для следующего сеанса"
+        confirm: "Вход"
+    shared:
+      links:
+        log_in: "Вход"
+        sign_up: "Регистрация"
+        forgot_password?: "Не могу вспомнить пароль"
+        didn't_receive_confirmation_instructions?: "Не могу получить инструкций для подтверждения"
+        didn't_receive_unlock_instructions?: "Не могу получить инструкций для разблокирования"
+        home: "Главная"
+
+  articles:
+    index:
+      reload: "Обновить"
+    new:
+      new: "Создание новой записи"
+    edit:
+      edit: "Изменение записи"
+      delete: "Удалить"
+      confirm_delete: "Удалить эту запись?"
+    form:
+      title: "Заголовок"
+      category: "Категория"
+      content: "Содержание"
+      submit: "Подтвердить"
+
+  categories:
+    show:
+      add_new_article: "Добавить новую запись"
+      article: "запись"
+    edit:
+      edit: "Изменение категории"
+      delete: "Удалить"
+    form:
+      title: "Заголовок"
+      confirm: "Изменить заголовок"
