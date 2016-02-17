@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def readonly_example_user
     if current_user.email.eql? "user@example.com"
       redirect_to articles_path
-      flash[:alert] = 'Please, sign up and do whatever you want'
+      flash[:alert] = I18n.t('.readonly_alert')
     end
   end
 

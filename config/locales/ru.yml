@@ -50,6 +50,9 @@ ru:
         password: "Пароль"
         remember_me: "Запомнить для следующего сеанса"
         confirm: "Вход"
+      user:
+        signed_in: "Добро пожаловать"
+        signed_out: "Всего доброго"
     shared:
       links:
         log_in: "Вход"
@@ -58,6 +61,10 @@ ru:
         didn't_receive_confirmation_instructions?: "Не могу получить инструкций для подтверждения"
         didn't_receive_unlock_instructions?: "Не могу получить инструкций для разблокирования"
         home: "Главная"
+    failure:
+      user:
+        invalid: "Данные введены неверно, попробуйте еще раз"
+
 
   articles:
     index:
@@ -84,3 +91,46 @@ ru:
     form:
       title: "Заголовок"
       confirm: "Изменить заголовок"
+
+# activerecord:
+#   errors:
+#     models:
+#       user:
+#         attributes:
+#           email:
+#             blank: "(электронная почта) не может быть пустой"
+#             not_found: "(электронная почта) не существует"
+#             taken: "(электронная почта) уже существует"
+#           password:
+#             blank: "(пароль) не может быть пустым"
+#             too_short: "(пароль) слишком короткий"
+#           password_confirmation:
+#             confirmation: "(подтверждение пароля) не совпадает с паролем"
+
+# errors:
+#   messages:
+#     not_saved: "Ошибки"
+  activerecord:
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        not_found: "не существует"
+        taken: "уже существует"
+        too_short: "слишком короткий"
+        confirmation: "не совпадает с паролем"
+
+  errors:
+    messages:
+      not_saved:
+        one: "1 ошибка отделяет %{resource} от продолжения"
+        other: "%{count} ошибки отделяют %{resource} от продолжения"
+
+  readonly_alert: "Эта функция будет доступна в вашем профиле после регистрации"
+  filter_updated: "Фильтр обновлен"
+  search_no_matches: 'К сожалению, ничего не найдено'
+  search_query_empty: 'Ваш запрос пустой'
+  article_created: 'Запись создана'
+  article_updated: 'Запись обновлена'
+  article_deleted: 'Запись была удалена'
+  forbidden: 'Ээй, тебе сюда нельзя!'
+  category_updated: "Категория обновлена"

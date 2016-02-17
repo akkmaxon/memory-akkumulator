@@ -66,6 +66,9 @@ en:
         password: "Password"
         remember_me: "Remember me"
         confirm: "Log in"
+      user:
+        signed_in: "Welcome"
+        signed_out: "Bye"
     passwords:
       new:
         forgot: "Forgot your password?"
@@ -105,3 +108,13 @@ en:
     form:
       title: 'Title'
       confirm: 'Update title'
+
+  readonly_alert: "Please, sign up and do whatever You want"
+  filter_updated: "Filter updated"
+  search_no_matches: 'Search returned no matches'
+  search_query_empty: 'Your search query is empty'
+  article_created: 'Article was successfully created'
+  article_updated: 'Article was successfully updated'
+  article_deleted: 'Article was successfully deleted'
+  forbidden: 'Forbidden place'
+  category_updated: 'Category was successfully updated.'

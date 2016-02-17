@@ -11,9 +11,9 @@ class ArticlesController < ApplicationController
       like = "like" unless Rails.env.production?
       like ||= "ilike"
       @articles = current_user.articles.where("content #{like} :param or title #{like} :param", param: "%#{param}%")
-      flash.now[:alert] = 'Search returned no matches' if @articles.empty?
+      flash.now[:alert] = I18n.t('.search_no_matches') if @articles.empty?
     else
-      flash.now[:alert] = 'Your search query is empty'
+      flash.now[:alert] = I18n.t('.search_query_empty')
       @articles = []
     end
   end
@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to category_path(@article.category), notice: 'Article was successfully created.' }
+        format.html { redirect_to category_path(@article.category), notice: I18n.t('.article_created') }
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }
@@ -58,7 +58,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to category_path(@article.category), notice: 'Article was successfully updated.' }
+        format.html { redirect_to category_path(@article.category), notice: I18n.t('.article_updated') }
       else
         format.html { render :edit }
         format.json { render json: @article.errors, status: :unprocessable_entity }
@@ -71,7 +71,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to articles_url, notice: I18n.t('.article_deleted') }
       format.json { head :no_content }
     end
   end
@@ -86,7 +86,7 @@ class ArticlesController < ApplicationController
       set_article
       unless @article.user.eql? current_user
         redirect_to articles_path
-        flash[:alert] = 'Forbidden place'
+        flash[:alert] = I18n.t('.forbidden')
       end
     end
 

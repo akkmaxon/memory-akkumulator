@@ -4,7 +4,7 @@ class FilterCategoriesController < ApplicationController
   
   def update_filter_categories
     redirect_to edit_user_registration_path
-    flash[:notice] = 'Filter was updated.'
+    flash[:notice] = I18n.t('.filter_updated')
   end
 
   private

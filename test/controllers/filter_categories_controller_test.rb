@@ -8,7 +8,7 @@ class FilterCategoriesControllerTest < ActionController::TestCase
 
   test "should post update_filter_categories" do
     post :update_filter_categories, params: {:"1_category" => '1' } 
-    assert_equal 'Filter was updated.', flash[:notice]
+    assert_equal 'Filter updated', flash[:notice]
   end
 
 end
