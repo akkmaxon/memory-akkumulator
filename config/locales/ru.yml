@@ -16,9 +16,13 @@ ru:
       search_article: "Поиск"
       edit_profile: "Настройки"
       log_out: "Выйти"
+    sidebar:
+      change_locale: "Сменить язык"
 
   devise:
     registrations:
+      signed_up: "Добро пожаловать! Вы успешно зарегистрированы"
+      destroyed: "Ваш профиль был удален, прощайте"
       new:
         sign_up: "Регистрация"
         email: "Электронная почта"
@@ -27,6 +31,7 @@ ru:
         password_characters_minimum: "символов минимум"
         confirm: "Зарегистрироваться" 
       edit:
+        change_locale: "Сменить язык"
         hide_articles_of_categories: "Скрывать в ленте записи категорий"
         update: "Обновить"
         account: "Регистрационные данные"
@@ -51,8 +56,8 @@ ru:
         remember_me: "Запомнить для следующего сеанса"
         confirm: "Вход"
       user:
-        signed_in: "Добро пожаловать"
-        signed_out: "Всего доброго"
+        signed_in: "Добро пожаловать."
+        signed_out: "Выход успешно осуществлен"
     shared:
       links:
         log_in: "Вход"
@@ -62,9 +67,15 @@ ru:
         didn't_receive_unlock_instructions?: "Не могу получить инструкций для разблокирования"
         home: "Главная"
     failure:
-      user:
-        invalid: "Данные введены неверно, попробуйте еще раз"
-
+      invalid: "Данные введены неверно, попробуйте еще раз"
+      not_found_in_database: "Сначала зарегистрируйтесь"
+      already_authenticated: "You are already signed in."
+      inactive: "Your account is not activated yet."
+      locked: "Your account is locked."
+      last_attempt: "You have one more attempt before your account is locked."
+      timeout: "Your session expired. Please sign in again to continue."
+      unauthenticated: "You need to sign in or sign up before continuing."
+      unconfirmed: "You have to confirm your email address before continuing."
 
   articles:
     index:

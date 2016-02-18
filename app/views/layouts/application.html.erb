@@ -13,6 +13,8 @@
   <%= render 'layouts/sidebar' %>
   <section class="col-md-9">
 <% else %>
+  <br>
+  <%= render 'shared/locale_switcher' if controller_name.eql? 'welcome_to_app' %>
   <section>
 <% end %>
 <% if controller.action_name =~ /edit|new/ %>
@@ -32,5 +34,6 @@
   </div>
 </div>
 </section>
+</div>
 </body>
 </html>

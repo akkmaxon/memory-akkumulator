@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'search' => 'articles#search'
     post 'update_filter_categories' => 'filter_categories#update_filter_categories'
     root 'welcome_to_app#welcome'
+    post 'change_locale' => 'application#change_locale'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

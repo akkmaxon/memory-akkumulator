@@ -1,0 +1,6 @@
+<div id="locale">
+  <%= form_tag change_locale_path do %>
+    <%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()', class: 'form-control' %>
+    <%= submit_tag 'submit' %>
+  <% end %>
+</div>

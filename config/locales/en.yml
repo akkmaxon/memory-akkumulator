@@ -37,6 +37,8 @@ en:
       search_article: 'Search article'
       edit_profile: 'Edit profile'
       log_out: 'Log out'
+    sidebar:
+      change_locale: 'To change language'
 
   devise:
     registrations:
@@ -48,6 +50,7 @@ en:
         password_characters_minimum: "characters minimum"
         confirm: "Sign up"
       edit:
+        change_locale: "To change language"
         hide_articles_of_categories: "Hide in the tape articles of categories"
         update: "Update"
         account: "Account"
@@ -66,9 +69,6 @@ en:
         password: "Password"
         remember_me: "Remember me"
         confirm: "Log in"
-      user:
-        signed_in: "Welcome"
-        signed_out: "Bye"
     passwords:
       new:
         forgot: "Forgot your password?"

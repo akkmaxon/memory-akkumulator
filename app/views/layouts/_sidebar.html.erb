@@ -1,7 +1,10 @@
 <aside class="col-md-3 hidden-xs hidden-sm">
-    <div class=" list-group ">
-      <% current_user_categories.each do |category| %>
-        <%= link_to category.title, category_path(category), class: 'list-group-item' %>
-      <% end %>
-    </div>
+  <div class=" list-group ">
+    <% current_user_categories.each do |category| %>
+      <%= link_to category.title, category_path(category), class: 'list-group-item' %>
+    <% end %>
+  </div>
+  <hr>
+  <p><%= t('.change_locale') %></p>
+  <%= render 'shared/locale_switcher' %>
 </aside>

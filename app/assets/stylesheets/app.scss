@@ -52,3 +52,10 @@ section {
 .alert {
   margin: 20px 0 !important;
 }
+
+#locale {
+  width: 200px;
+  input[type="submit"] {
+    display: none;
+  }
+}
