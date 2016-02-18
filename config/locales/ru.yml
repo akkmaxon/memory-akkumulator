@@ -12,9 +12,9 @@ ru:
     header:
       home: "Главная"
       categories: "Категории"
-      add_article: "Добавить запись"
+      add_article: "Создать"
       search_article: "Поиск"
-      edit_profile: "Настройки профиля"
+      edit_profile: "Настройки"
       log_out: "Выйти"
 
   devise:
