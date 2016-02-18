@@ -122,8 +122,8 @@ ru:
   errors:
     messages:
       not_saved:
-        one: "1 ошибка отделяет %{resource} от продолжения"
-        other: "%{count} ошибки отделяют %{resource} от продолжения"
+        one: "1 ошибка:"
+        other: "%{count} ошибки:"
 
   readonly_alert: "Эта функция будет доступна в вашем профиле после регистрации"
   filter_updated: "Фильтр обновлен"
