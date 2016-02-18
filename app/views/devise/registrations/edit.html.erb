@@ -1,13 +1,15 @@
 <h3><%= t('.hide_articles_of_categories') %>:</h3> 
 <%= form_tag :update_filter_categories do %>
-  <% current_user_categories.each do |category| %>
-    <% if current_user.hidden_categories.include? category %>
-      <%= check_box_tag "#{category.id}_category".to_sym, 'checked', checked: true %>
-    <% else %>
-      <%= check_box_tag "#{category.id}_category".to_sym, 'checked' %>
+  <div id="filter-categories">
+    <% current_user_categories.each do |category| %>
+      <% if current_user.hidden_categories.include? category %>
+	<%= check_box_tag "#{category.id}_category".to_sym, 'checked', checked: true %>
+      <% else %>
+	<%= check_box_tag "#{category.id}_category".to_sym, 'checked' %>
+      <% end %>
+      <%= label_tag category.title %><br>
     <% end %>
-    <%= label_tag category.title %><br>
-  <% end %>
+  </div>
   <%= submit_tag t('.update'), class: "btn btn-success" %>
 <% end %>
 <hr>
