@@ -7,33 +7,38 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="container">
-<% if current_user %>
-  <%= render'layouts/header' %>
-  <%= render 'layouts/sidebar' %>
-  <section class="col-md-9">
-<% else %>
-  <br>
-  <%= render 'shared/locale_switcher' if controller_name.eql? 'welcome_to_app' %>
-  <section>
-<% end %>
-<% if controller.action_name =~ /edit|new/ %>
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-<% else %>
-<div>
-  <div>
-<% end %>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
+<body>
+<div class="container">
+  <div class="row">
+    <% if current_user %>
+      <%= render'layouts/header' %>
+      <%= render 'layouts/sidebar' %>
+      <section class="col-md-9">
+    <% else %>
+      <section class="col-xs-12">
+      <br>
+      <%= render 'shared/locale_switcher' if controller_name.eql? 'welcome_to_app' %>
     <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+    <% if controller.action_name =~ /edit|new/ %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+    <% else %>
+    <div>
+      <div>
     <% end %>
-    <%= yield %>
-  </div>
-</div>
+	<% if notice %>
+	  <p class="alert alert-success"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+	  <p class="alert alert-danger"><%= alert %></p>
+	<% end %>
+	<%= yield %>
+      </div>
+    </div>
+  </div><!-- row -->
+</div><!-- container -->
 </section>
+<%= render 'layouts/footer' %>
 </div>
 </body>
 </html>

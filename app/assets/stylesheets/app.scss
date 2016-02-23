@@ -1,8 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$max-mobile-width: 767px;
-
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -23,6 +21,14 @@ header {
   }
 }
 
+footer {
+  margin: 50px 0px 5px;
+  #email {
+    font-size: 1.2em;
+  }
+
+}
+
 #collapse .input-group {
   margin: 10px;
   width: 250px;
@@ -40,9 +46,6 @@ aside {
 
 section {
   margin-bottom: 20px;
-  @media(max-width: $max-mobile-width) {
-    padding: 0px !important;
-  }
 }
 
 .field_with_errors {

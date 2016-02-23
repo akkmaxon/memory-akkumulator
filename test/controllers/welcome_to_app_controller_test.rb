@@ -9,7 +9,6 @@ class WelcomeToAppControllerTest < ActionController::TestCase
   test "should get welcome page" do
     sign_out users(:one)
     get :welcome
-    assert_select 'a', count: 2
     assert_select 'input[value=?]', 'How is it?'
   end
 
