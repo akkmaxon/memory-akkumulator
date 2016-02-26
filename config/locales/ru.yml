@@ -18,6 +18,11 @@ ru:
       log_out: "Выйти"
     sidebar:
       change_locale: "Сменить язык"
+    footer:
+      my_name: 'Аккузин Максим'
+      mail_to_me: 'Напишите мне'
+      linkedin: 'Мой LinkedIn профиль'
+      github: 'Мой Github профиль'
 
   devise:
     registrations:

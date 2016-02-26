@@ -39,6 +39,11 @@ en:
       log_out: 'Log out'
     sidebar:
       change_locale: 'To change language'
+    footer:
+      my_name: 'Akkuzin Maxim'
+      mail_to_me: 'Send me an email'
+      linkedin: 'My LinkedIn profile'
+      github: 'My Github profile'
 
   devise:
     registrations:

@@ -2,13 +2,13 @@
   <div class="container">
     <hr>
     <div class="row">
-      <%= mail_to mail_to_me, "Akkuzin Maxim", class: 'col-xs-6 col-md-offset-4 col-md-4 text-center btn btn-link', id: 'email' %>
+      <%= mail_to mail_to_me, t('.my_name'), class: 'col-xs-6 col-md-offset-4 col-md-4 text-center btn btn-link', id: 'email', title: t('.mail_to_me') %>
       <div id="social" class="col-xs-6 col-md-4 text-center">
 	<a href="https://www.linkedin.com/in/akkmaxon">
-	  <%= image_tag "social-011-round_linkedin.png", alt: 'My LinkedIn Profile', id: 'linkedin' %>
+	  <%= image_tag "social-011-round_linkedin.png", alt: t('.linkedin'), id: 'linkedin', title: t('.linkedin') %>
 	</a>
 	<a href="https://www.github.com/akkmaxon">
-	  <%= image_tag "social-041-round_github.png", alt: 'My Github Profile', id: 'github' %>
+	  <%= image_tag "social-041-round_github.png", alt: t('.github'), id: 'github', title: t('.github') %>
 	</a>
       </div>
     </div>
