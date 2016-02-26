@@ -26,17 +26,23 @@
     <div>
       <div>
     <% end %>
-	<% if notice %>
-	  <p class="alert alert-success"><%= notice %></p>
-	<% end %>
-	<% if alert %>
-	  <p class="alert alert-danger"><%= alert %></p>
+	<% unless flash.empty? %>
+	  <% flash.each do |key, val| %>
+	    <% if key.eql? 'notice' %>
+	    <div class="alert alert-success fade in"> 
+	    <% else %>
+	    <div class="alert alert-danger fade in"> 
+	    <% end %>
+	      <a href="#" class="close" data-dismiss="alert">&times;</a>
+	      <p><%= val %></p>
+	    </div>
+	  <% end %>
 	<% end %>
 	<%= yield %>
       </div>
     </div>
-  </div><!-- row -->
-</div><!-- container -->
+  </div>
+</div>
 </section>
 <%= render 'layouts/footer' %>
 </div>
